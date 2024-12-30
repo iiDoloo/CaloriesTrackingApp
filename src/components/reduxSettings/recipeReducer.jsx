@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = []
 
 const recipeSlice = createSlice({
   name: 'recipe',
-  initialState,
+  initialState : [],
   reducers: {
     addRecipe(state,action) {
       console.log(action)
@@ -27,6 +26,7 @@ const recipeSlice = createSlice({
     }
   },
 })
+
 
 export const {addRecipe,editRecipe,removeRecipeIngredient, removeRecipe} = recipeSlice.actions
 export default recipeSlice.reducer

@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const RecipeTracker = () => {
     const recipe = useSelector((state) => state.recipe);
+    const trackedRecipes = useSelector((state)=>state.track)
+    console.log(trackedRecipes)
     const dispatch = useDispatch();
-    const total_calories = recipe.reduce((prev, curr) => prev + curr.calories, 0);
+    const total_calories = trackedRecipes.reduce((prev, curr) => prev + curr.calories, 0);
     console.log(total_calories)
 
     return (
@@ -13,9 +15,9 @@ const RecipeTracker = () => {
             <h2 className="text-2xl font-bold mb-6 text-center bg-yellow-400 text-white py-2 px-4 rounded-lg">Recipe Tracker</h2>
             <h3 className="text-xl font-bold  text-center">Your Recipes of the Day : </h3>
             <p className="text-center text-gray-500 mb-2 ">Total Calories : {total_calories}</p>
-            {recipe.length > 0 ? (
+            {trackedRecipes.length > 0 ? (
                 <div className="space-y-4">
-                    {recipe.map((x, i) => (
+                    {trackedRecipes.map((x, i) => (
                         <div key={i} className="p-4 bg-gray-50 rounded-lg shadow-sm">
                             <img src={x.image!=""?x.image:"https://www.eatingwell.com/thmb/088YHsNmHkUQ7iNGP4375MiAXOY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_7866255_foods-you-should-eat-every-week-to-lose-weight_-04-d58e9c481bce4a29b47295baade4072d.jpg"} className="w-full h-48 object-cover rounded-lg mb-4"/>
                             <h2 className="text-lg font-semibold text-gray-700">{x.recipe}</h2>
@@ -37,7 +39,7 @@ const RecipeTracker = () => {
                         </div>
                     ))}
                 </div>
-            ) :<p className="text-center mt-9 text-gray-500">No recipes found. Add a recipe to get started!</p>
+            ) :<p className="text-center mt-9 text-gray-500">No recipes found. Add and track a recipe to get started!</p>
             }
         </div>
     );
