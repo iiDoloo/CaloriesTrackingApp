@@ -10,10 +10,10 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center space-x-8">
-                        <Link to="/" className="text-gray-800 hover:text-blue-500 font-medium">RecipeApp</Link>
-                        <Link to="/form" className="text-gray-800 hover:text-blue-500 font-medium">RecipeForm</Link>
-                        <Link to="/list" className="text-gray-800 hover:text-blue-500 font-medium">RecipeList</Link>
-                        <Link to="/item" className="text-gray-800 hover:text-blue-500 font-medium">RecipeItem</Link>
+                        <Link to="/" className="text-gray-800 hover:text-blue-500 font-medium">Tracker</Link>
+                        <Link to="/form" className="text-gray-800 hover:text-blue-500 font-medium">Form</Link>
+                        <Link to="/list" className="text-gray-800 hover:text-blue-500 font-medium">List</Link>
+                        <Link to="/item" className="text-gray-800 hover:text-blue-500 font-medium">Items</Link>
                     </div>
                 </div>
             </div>

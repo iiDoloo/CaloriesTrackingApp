@@ -10,9 +10,10 @@ const recipeSlice = createSlice({
       console.log(action)
       return [...state,action.payload]
     },
-    modifier(state, action) {
+    editRecipe(state, action) {
       console.log(action)
-      return state.map((x,i)=>i==action.payload?{...x,modify:true}:{...x,modify:false})
+      return state.map((x,i)=>i==action.payload.recipeId?{...x,ingredients:
+        x.ingredients.map((ingr,ingrId)=>ingrId==action.payload.ingredientId?action.payload.editIngredient:ingr)}:x)
     },
     valider(state,action){
       console.log(action)
@@ -25,5 +26,5 @@ const recipeSlice = createSlice({
   },
 })
 
-export const {addRecipe  } = recipeSlice.actions
+export const {addRecipe,editRecipe  } = recipeSlice.actions
 export default recipeSlice.reducer
