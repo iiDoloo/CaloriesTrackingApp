@@ -15,16 +15,18 @@ const recipeSlice = createSlice({
       return state.map((x,i)=>i==action.payload.recipeId?{...x,ingredients:
         x.ingredients.map((ingr,ingrId)=>ingrId==action.payload.ingredientId?action.payload.editIngredient:ingr)}:x)
     },
-    valider(state,action){
+    removeRecipe(state,action){
       console.log(action)
-      return state.map((x,i)=>i==action.payload.id?{...x,isbn:action.payload.data.isbn,nom:action.payload.data.nom,type:action.payload.data.type,auteur:action.payload.data.auteur,modify:false}:x)
+      return state.filter((x,i)=>i!=action.payload.recipeId)
     },
-    supprimer(state,action){
-      console.log(action)
-      return state.filter((x,i)=>x.id!=action.payload.id)
+    removeRecipeIngredient(state,action){
+      console.log('remove payload',action)
+      return state.map((x,i)=>i==action.payload.recipeId?{...x,ingredients:
+        x.ingredients.filter((ingr,id)=>id!=action.payload.ingredientId)
+      }:x)
     }
   },
 })
 
-export const {addRecipe,editRecipe  } = recipeSlice.actions
+export const {addRecipe,editRecipe,removeRecipeIngredient, removeRecipe} = recipeSlice.actions
 export default recipeSlice.reducer

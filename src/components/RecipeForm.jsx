@@ -88,10 +88,10 @@ const RecipeForm = () => {
                                         <p className="text-sm font-medium text-gray-700">{x.ingredientName}</p>
                                         <p className="text-xs text-gray-500">{x.ingredientCalories} kcal · {x.ingredientServing} serving</p>
                                     </div>
-                                    <div className="flex space-x-2">
+                                    {/* <div className="flex space-x-2">
                                         <button type="button" onClick={() => handleEditIngredient(i)} className="px-3 py-1 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500">Edit</button>
                                         <button type="button" onClick={() => handleRemoveIngredient(i)} className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">Remove</button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             ))}
                             <div className="mt-4 p-3 bg-gray-100 rounded-lg">
